@@ -1,0 +1,21 @@
+{% extends 'main/base.html'%}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="title_p">
+        <div class="container">
+            <p>Здесь представлены актуальные на сегодняшний день IT-профессии</p>
+        </div>
+    </div>
+    <div class="features">
+        {% for el in professions %}
+        <div class="alert alert-primary">
+            <h3 class="alert-heading">{{ el.title }}</h3>
+            <hr class="hr_line">
+            <p class="mb-0">{{ el.anons }}</p>
+            <a href="{% url 'professions-detail' el.id %}" class="btn btn-outline-primary">Подробнее</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}
